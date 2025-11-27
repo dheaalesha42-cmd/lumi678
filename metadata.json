@@ -1,0 +1,5 @@
+{
+  "name": "Lumina Vision",
+  "description": "A comprehensive AI imaging suite powered by Gemini. Generate creative visuals, edit and upscale existing photos with natural language, and analyze imagery with advanced multimodal AI.",
+  "requestFramePermissions": []
+}

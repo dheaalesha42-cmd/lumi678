@@ -114,7 +114,7 @@ export const ImageGenerator: React.FC = () => {
             <select 
               value={selectedModel}
               onChange={(e) => setSelectedModel(e.target.value as GenerationModel)}
-              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500 outline-none appearance-none"
+              className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-cyan-500 outline-none appearance-none"
             >
               {GENERATION_MODELS.map(model => (
                 <option key={model} value={model}>{model.replace('models/', '')}</option>
@@ -129,7 +129,7 @@ export const ImageGenerator: React.FC = () => {
               <div className="flex gap-3">
                 <button 
                   onClick={() => setShowTemplates(true)}
-                  className="text-xs flex items-center gap-1.5 text-slate-400 hover:text-indigo-400 transition-colors"
+                  className="text-xs flex items-center gap-1.5 text-slate-400 hover:text-cyan-400 transition-colors"
                 >
                   <Lightbulb className="w-3 h-3" />
                   Inspiration
@@ -137,7 +137,7 @@ export const ImageGenerator: React.FC = () => {
                 <button 
                   onClick={handleEnhancePrompt}
                   disabled={enhancing || !prompt}
-                  className="text-xs flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300 disabled:opacity-50 transition-colors"
+                  className="text-xs flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300 disabled:opacity-50 transition-colors"
                 >
                   {enhancing ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3" />}
                   Magic Enhance
@@ -148,7 +148,7 @@ export const ImageGenerator: React.FC = () => {
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
               placeholder="Describe your imagination..."
-              className="w-full h-28 bg-slate-900 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none resize-none transition-all"
+              className="w-full h-28 bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none resize-none transition-all"
             />
           </div>
 
@@ -161,7 +161,7 @@ export const ImageGenerator: React.FC = () => {
                 <select 
                   value={selectedStyle}
                   onChange={(e) => setSelectedStyle(e.target.value as StylePreset)}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:ring-1 focus:ring-indigo-500 outline-none appearance-none"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:ring-1 focus:ring-cyan-500 outline-none appearance-none"
                 >
                   {STYLE_PRESETS.map(style => (
                     <option key={style.id} value={style.id}>{style.label}</option>
@@ -174,7 +174,7 @@ export const ImageGenerator: React.FC = () => {
                <select 
                   value={aspectRatio}
                   onChange={(e) => setAspectRatio(e.target.value as AspectRatio)}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:ring-1 focus:ring-indigo-500 outline-none appearance-none"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:ring-1 focus:ring-cyan-500 outline-none appearance-none"
                 >
                   {(['1:1', '16:9', '9:16', '3:4', '4:3'] as AspectRatio[]).map(ar => (
                     <option key={ar} value={ar}>{ar}</option>
@@ -189,7 +189,7 @@ export const ImageGenerator: React.FC = () => {
                <select 
                   value={numberOfImages}
                   onChange={(e) => setNumberOfImages(Number(e.target.value))}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:ring-1 focus:ring-indigo-500 outline-none appearance-none"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:ring-1 focus:ring-cyan-500 outline-none appearance-none"
                 >
                   {[1, 2, 3, 4].map(num => (
                     <option key={num} value={num}>{num} Image{num > 1 ? 's' : ''}</option>
@@ -208,14 +208,14 @@ export const ImageGenerator: React.FC = () => {
               value={negativePrompt}
               onChange={(e) => setNegativePrompt(e.target.value)}
               placeholder="blur, low quality, distorted..."
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-600 focus:ring-1 focus:ring-indigo-500 outline-none"
+              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-600 focus:ring-1 focus:ring-cyan-500 outline-none"
              />
           </div>
 
           <button
             onClick={handleGenerate}
             disabled={loading || !prompt}
-            className="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-lg shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold text-lg shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {loading ? <Loader2 className="animate-spin" /> : <Wand2 />}
             {loading ? `Generating ${numberOfImages} Image${numberOfImages > 1 ? 's' : ''}...` : 'Generate'}
@@ -270,7 +270,7 @@ export const ImageGenerator: React.FC = () => {
             <div className="absolute inset-0 flex items-center justify-center text-center text-slate-500 p-8">
               {loading ? (
                 <div className="flex flex-col items-center gap-4">
-                  <div className="w-16 h-16 border-4 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin"></div>
+                  <div className="w-16 h-16 border-4 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin"></div>
                   <p className="animate-pulse">Dreaming up {numberOfImages} masterpiece{numberOfImages > 1 ? 's' : ''}...</p>
                 </div>
               ) : (
@@ -293,11 +293,11 @@ export const ImageGenerator: React.FC = () => {
              className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in"
              onClick={() => setShowTemplates(false)}
            />
-           <div className="relative w-full max-w-3xl bg-slate-950 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 max-h-[85vh] flex flex-col">
+           <div className="relative w-full max-w-3xl bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 max-h-[85vh] flex flex-col">
               <div className="p-6 border-b border-slate-800 flex items-center justify-between bg-slate-900/50">
                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-indigo-500/10 rounded-lg">
-                      <Lightbulb className="w-5 h-5 text-indigo-400" />
+                    <div className="p-2 bg-cyan-500/10 rounded-lg">
+                      <Lightbulb className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white">Prompt Library</h3>
@@ -308,7 +308,7 @@ export const ImageGenerator: React.FC = () => {
                    <button 
                      onClick={handleGeneratePrompts}
                      disabled={generatingTemplates}
-                     className="flex items-center gap-2 px-3 py-2 bg-indigo-600/20 text-indigo-400 hover:bg-indigo-600/30 hover:text-indigo-300 rounded-lg text-xs font-medium transition-colors disabled:opacity-50"
+                     className="flex items-center gap-2 px-3 py-2 bg-cyan-600/20 text-cyan-400 hover:bg-cyan-600/30 hover:text-cyan-300 rounded-lg text-xs font-medium transition-colors disabled:opacity-50"
                    >
                      <RefreshCw className={`w-3.5 h-3.5 ${generatingTemplates ? 'animate-spin' : ''}`} />
                      {generatingTemplates ? 'Dreaming...' : 'New Ideas'}
@@ -325,7 +325,7 @@ export const ImageGenerator: React.FC = () => {
               <div className="flex-1 overflow-y-auto p-6 custom-scrollbar space-y-8">
                  {templates.map((section) => (
                     <div key={section.category} className="space-y-3">
-                       <h4 className="text-sm font-semibold text-indigo-400 uppercase tracking-wider sticky top-0 bg-slate-950 py-2 z-10">
+                       <h4 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider sticky top-0 bg-slate-800 py-2 z-10">
                          {section.category}
                        </h4>
                        <div className="grid grid-cols-1 gap-3">
@@ -336,12 +336,12 @@ export const ImageGenerator: React.FC = () => {
                                  setPrompt(template);
                                  setShowTemplates(false);
                                }}
-                               className="group text-left p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800 transition-all"
+                               className="group text-left p-4 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/50 hover:bg-slate-700 transition-all"
                              >
                                 <p className="text-sm text-slate-300 group-hover:text-white transition-colors">
                                   {template}
                                 </p>
-                                <div className="mt-2 flex items-center text-xs text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="mt-2 flex items-center text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">
                                    Use Template <ChevronRight className="w-3 h-3 ml-1" />
                                 </div>
                              </button>

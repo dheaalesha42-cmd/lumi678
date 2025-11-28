@@ -33,14 +33,14 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeMode, onModeChan
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-slate-950 text-slate-100 font-sans">
+    <div className="min-h-screen flex flex-col md:flex-row bg-slate-900 text-slate-100 font-sans">
       {/* Sidebar (Desktop) */}
       <aside className="hidden md:flex flex-col w-64 border-r border-slate-800 bg-slate-900/50 backdrop-blur-xl p-6 fixed h-full z-10">
         <div className="flex items-center gap-3 mb-10">
-          <div className="w-8 h-8 rounded-lg bg-indigo-500 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
             <Sparkles className="w-5 h-5 text-white" />
           </div>
-          <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
+          <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
             Lumina
           </h1>
         </div>
@@ -52,7 +52,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeMode, onModeChan
               onClick={() => handleNavClick(item.id)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
                 activeMode === item.id
-                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20'
+                  ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/20'
                   : 'text-slate-400 hover:bg-slate-800 hover:text-white'
               }`}
             >
@@ -82,7 +82,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeMode, onModeChan
       {/* Mobile Header */}
       <header className="md:hidden flex items-center justify-between p-4 border-b border-slate-800 bg-slate-900/80 backdrop-blur-lg sticky top-0 z-20">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-md bg-indigo-500 flex items-center justify-center">
+          <div className="w-7 h-7 rounded-md bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
             <Sparkles className="w-4 h-4 text-white" />
           </div>
           <span className="font-bold text-lg">Lumina</span>
@@ -105,7 +105,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeMode, onModeChan
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-10 bg-slate-950/95 pt-20 px-6">
+        <div className="md:hidden fixed inset-0 z-10 bg-slate-900/95 backdrop-blur-xl pt-20 px-6">
           <nav className="space-y-4">
             {navItems.map((item) => (
               <button
@@ -113,8 +113,8 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeMode, onModeChan
                 onClick={() => handleNavClick(item.id)}
                 className={`w-full flex items-center gap-4 px-4 py-4 rounded-xl text-lg ${
                   activeMode === item.id
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-slate-900 text-slate-400'
+                    ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white'
+                    : 'bg-slate-800 text-slate-400'
                 }`}
               >
                 {item.icon}
